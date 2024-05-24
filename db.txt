@@ -1,0 +1,50 @@
+create database TechsRepair;
+use TechsRepair;
+
+create table `User`(
+	userID integer primary key auto_increment,
+    Login varchar(64), 
+    `Password` varchar(64),
+    Fio varchar(200),
+    Phone varchar(11),
+    `Type` varchar(45)
+);
+
+create table `Master`(
+	masterID integer primary key auto_increment,
+    `Fio` varchar(200)
+);
+
+create table `Client`(
+	clientID integer primary key auto_increment,
+    `Fio` varchar(200)
+);
+
+create table `Request`(
+	requestID integer primary key auto_increment,
+    startDate date,
+    computerTechType varchar(100),
+    computerTechModel varchar(200),
+    problemDescryption varchar(100),
+    requestStatus varchar(100),
+    completionDate date,
+    repairParts varchar(100),
+	masterID integer,
+	foreign key (masterID) references `Master`(masterID) ON DELETE SET NULL,
+    clientID integer,
+	foreign key (clientID) references `Client`(clientID) ON DELETE SET NULL
+);
+
+create table `Comment`(
+	commentID integer primary key auto_increment,
+    `message` varchar(200),
+    masterID integer,
+	foreign key (masterID) references `Master`(masterID) ON DELETE SET NULL,
+    requestID integer,
+	foreign key (requestID) references `Request`(requestID) ON DELETE SET NULL
+);
+
+
+INSERT INTO techsrepair.user (Login, Password, Fio, Phone, Type) VALUES ('user', '123', '1', '1', '1');
+INSERT INTO techsrepair.Master  VALUES (1, '123');
+INSERT INTO techsrepair.Client  VALUES (1, '123');

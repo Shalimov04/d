@@ -1,0 +1,10 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/*	public void testCalcRequests() {
+	    // Проверка правильности подсчета заявок со статусом "Готова к выдаче"
+	    int cnt = JdbcTemplate.query(
+	            "SELECT COUNT(*) AS cnt FROM `Request` WHERE `requestStatus`='Готова к выдаче'",
+	            (resultSet, rowNum) -> resultSet.getInt("cnt")
+	    ).get(0);
+	    assertEquals(2, cnt, "Количество заявок со статусом 'Готова к выдаче' должно быть 2");
+	}
+ */
